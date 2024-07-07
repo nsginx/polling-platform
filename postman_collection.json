@@ -1,0 +1,356 @@
+{
+	"info": {
+		"_postman_id": "cc7e5a59-0180-45a5-b1bc-07f0e9d69e23",
+		"name": "polling-platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22897635"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"test2\",\r\n    \"email\" : \"test2@gmail.com\",\r\n    \"password\" : \"abcd1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"test1@gmail.com\",\r\n    \"password\" : \"abcd1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/user/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"test2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Poll",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pollType\" : \"single\",\r\n    \"question\" : \"dummy question 1\",\r\n    \"isAnonymous\" : false,\r\n    \"options\" : [\r\n        {\r\n            \"text\" : \"option1\"\r\n        },\r\n        {\r\n            \"text\" : \"option2\"\r\n        }\r\n    ],\r\n    \"expiry\": \"2024-12-03T11:17:02.409Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/poll/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"poll",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/poll/delete?id=6686ac355243fa9a89fa1b45",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"poll",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6686ac355243fa9a89fa1b45"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finish",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/poll/finish?id=668540758a0382e3c3e5ab84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"poll",
+								"finish"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "668540758a0382e3c3e5ab84"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vote",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"votes\" : [\r\n        {\r\n           \"id\": \"6686acb8dd6fc5b6593352bc\" ,\r\n           \"userVote\" : true\r\n        },\r\n        {\r\n            \"id\": \"6686acb8dd6fc5b6593352bd\",\r\n            \"userVote\" : false\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/poll/vote?id=6686acb8dd6fc5b6593352bb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"poll",
+								"vote"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6686acb8dd6fc5b6593352bb"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/poll/view?id=668550898a0382e3c3e5abcc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"poll",
+								"view"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "668550898a0382e3c3e5abcc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Visibility",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isAnonymous\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/poll/changeVisibility?id=668550898a0382e3c3e5abcc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"poll",
+								"changeVisibility"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "668550898a0382e3c3e5abcc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Created By Me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/poll/createdByMe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"poll",
+								"createdByMe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Voted By Me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/poll/votedByMe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"poll",
+								"votedByMe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

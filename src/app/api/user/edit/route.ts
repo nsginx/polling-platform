@@ -5,10 +5,10 @@ import jwt from 'jsonwebtoken'
 
 connect();
 
-export async function POST(request:NextRequest){
+export async function PATCH(request:NextRequest){
     try {
         const reqBody = await request.json();
-        const {id, username} = reqBody;
+        const {username} = reqBody;
 
         const reqToken = await request.cookies.get('token');
 
@@ -18,17 +18,13 @@ export async function POST(request:NextRequest){
 
         const reqTokenVal:any = jwt.decode(reqToken.value);
 
-        if(reqTokenVal.id != id){
-            return NextResponse.json({message : "Unauthorized ! You cannot change someone else's info"}, {status : 401});
-        }
-
         const duplicateUser = await User.findOne({username});
 
         if(duplicateUser){
             return NextResponse.json({message : "username already exists"}, {status : 400});
         }
 
-        const user = await User.findById(id);
+        const user = await User.findById(reqTokenVal.id);
 
         user.username = username;
 

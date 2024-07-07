@@ -1,9 +1,14 @@
 import mongoose from "mongoose";
 
+
 const pollSchema = new mongoose.Schema({
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref : 'users',
+        required: true
+    },
+    question: {
+        type: String,
         required: true
     },
     pollType : {
